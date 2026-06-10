@@ -29,7 +29,7 @@ jobs:
           repositories: ${{ github.event.repository.name }}
 
       - name: Run SQL Guard
-        uses: LC-Sandbox/lc-github-actions/check-sql@main
+        uses: LC-Sandbox/lc-github-actions/check-sql@master
         with:
           github-token: ${{ steps.app-token.outputs.token }}
           exempt-teams: "dba ort"
