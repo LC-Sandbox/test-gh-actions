@@ -1,0 +1,21 @@
+name: Mirror Repo to CodeCommit
+
+on:
+  push:
+  delete:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mirror repository
+        uses: LC-Sandbox/lc-github-actions/mirror-aws@master
+        with:
+          role-to-assume: ${{ vars.MIRROR_AWS_ROLE_ARN }}
+          aws-region: eu-west-1
